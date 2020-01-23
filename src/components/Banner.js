@@ -87,12 +87,6 @@ const Banner = () => {
     color: ${theme.white};
     position: absolute;
     width: 100%;
-    left: 0;
-    top: 50%;
-    transform: translateY(-100%);
-    text-align: center;
-    mix-blend-mode: difference;
-    z-index: 9;
   
   `
   
@@ -115,7 +109,7 @@ const Banner = () => {
     max-width: 320px;
   }
   div:first-child{
-    margin-top: 20%;
+
 
 
     

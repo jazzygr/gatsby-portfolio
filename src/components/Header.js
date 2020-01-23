@@ -1,5 +1,4 @@
 import {Link} from "gatsby"
-import PropTypes from "prop-types"
 import styled from "styled-components"
 import React from "react"
 
@@ -53,8 +52,6 @@ const Header = () => {
     text-transform: uppercase;
     cursor: pointer;
     text-align: center;
-    
-    
     `
     const Nav = styled.nav`
     margin-top: .5rem;
@@ -63,7 +60,7 @@ const Header = () => {
     const StyledLink = styled(Link)`
     text-decoration: none;
     text-transform: uppercase;
-    letter-spacing: ${props => (props.logo ? '2px' : '2px')};
+    letter-spacing: ${props => (props.logo ? '5px' : '2px')};
     padding: 5px;
     font-size: ${props => (props.logo ? '1rem' : '.85rem')};
     color: ${theme.primary};
@@ -72,15 +69,14 @@ const Header = () => {
     margin: 0 5px;
     transition: all 0.3s ease 0s;
     @media(min-width:550px){
-      font-size: ${props => (props.logo ? '1rem' : '.85rem')}
+      font-size: ${props => (props.logo ? '1.5rem' : '1.2rem')}
       
-      
+    }
       &:hover{
         color: ${props => (props.highlight ? `${theme.secondary}` : `${theme.secondary}`)};
         transition: all 0.3s ease 0s;
         background-color: ${props => (props.highlight ? `${theme.primary}` : 'none')};
-        
-        
+      }
         `
         
         
