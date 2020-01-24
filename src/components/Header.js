@@ -9,12 +9,13 @@ const Header = () => {
     
     <Container>
     <Logo>
-    <StyledLink to="/" logo='logo'>Jeff Graham<br></br> Web Development</StyledLink>
+    <StyledLink to="/" logo='logo'>Jeff Graham<br></br>Web Development</StyledLink>
     </Logo>
     
     <Nav>
     <StyledLink to="/about">About</StyledLink>
     <StyledLink to="/work">Work</StyledLink>
+    <StyledLink to="/portfolio">Portfolio</StyledLink>
     <StyledLink to="/contact" highlight="highlight">Contact</StyledLink>
     </Nav>
     
@@ -34,27 +35,29 @@ const Header = () => {
     }
     
     const Container = styled.div`
-    display: flex;
-    justify-content: space-between;
-    flex-flow: column;
-    align-items: center;
-    padding: 10px 5%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    z-index: 999;
+    border: 1px solid red;
     height: 10vh;
-    @media(min-width:550px){
-      flex-flow: row;
-      margin-top: 1rem;
+    @media(max-width:650px){
+      display: grid;
+      
     }
-    
+    nav:nth-child(2){
+      background-color: red;
+    }
+
     `
-    
     const Logo = styled.div`
-    flex: 1
     text-transform: uppercase;
     cursor: pointer;
-    text-align: center;
+    
     `
     const Nav = styled.nav`
-    margin-top: .5rem;
+    border: 1px solid black;
+    height: 100%;
+    
     `
     
     const StyledLink = styled(Link)`
@@ -62,14 +65,13 @@ const Header = () => {
     text-transform: uppercase;
     letter-spacing: ${props => (props.logo ? '5px' : '2px')};
     padding: 5px;
-    font-size: ${props => (props.logo ? '1rem' : '.85rem')};
+    font-size: ${props => (props.logo ? '.85rem' : '.6rem')};
     color: ${theme.primary};
-    border: 1px solid ${props => (props.highlight ? theme.secondary : 'none')};
-    border-radius: 30px;
-    margin: 0 5px;
+    border-bottom: 1px solid ${props => (props.highlight ? theme.gray : 'none')};
     transition: all 0.3s ease 0s;
-    @media(min-width:550px){
-      font-size: ${props => (props.logo ? '1.5rem' : '1.2rem')}
+    
+    @media(min-width:650px){
+      font-size: ${props => (props.logo ? '1.3rem' : '1rem')};
       
     }
       &:hover{

@@ -9,7 +9,7 @@ const Banner = () => {
   query {
     lineDrawingMain: file(relativePath: { eq: "line-drawing-main.png" }) {
       childImageSharp {
-        fluid(maxWidth: 300) {
+        fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid
         }
       }
@@ -18,17 +18,20 @@ const Banner = () => {
   `)
   
   return (
-    <>
-    
+    <>   
     <Container>
     <BannerTextContainer>
-    <p>Jeff Graham</p>
+    <h2>Hey</h2>
+    <h1>I'm Jeff</h1>
+    <h2>I build websites.</h2>
+    <div>
+    <button>Hire Me</button>
+    <button>Get CV</button>
+    </div>
     </BannerTextContainer>
-
     <BannerImage>
     <Img fluid={data.lineDrawingMain.childImageSharp.fluid} />
     </BannerImage>    
-    
     </Container>
     </>
     )
@@ -36,9 +39,6 @@ const Banner = () => {
     
     
   }
-  
-  
-  
   //Styles
   
   const theme = {
@@ -46,76 +46,75 @@ const Banner = () => {
     black: "#000",
     gray: "#818181",
     primary: "#0088a9",
-    secondary: "#59FFA0"
+    secondary: "#59FFA0",
+    fontPrimary: "Merriweather",
+    fontSecondary: "Lora"
   }
   
   const Container = styled.div`
-  display: flex;
-  width: 1640px;
-  min-width: 1640px;
-  margin: 0 auto;
-  @media(max-width: 1800px){
-    width: 1200px;
-    min-width: 1200px;
-  }
-  @media(max-width: 1200px){
-    width: 900px;
-    min-width: 900px;
-  }
-  @media(max-width: 900px){
-    width: 600px;
-    min-width: 600px;
-  }
-  @media(max-width: 600px){
-    width: 320px;
-    min-width: 320px;
-  }
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  margin: 3rem;
+
   
   `
   
   const BannerTextContainer = styled.div`
-  display: flex;
-  align-items: center;
-  background-color: ${theme.white};
-  position: relative;  
-  height: 80vh; 
-  p:first-child{
-    font-size: 2rem;
+  display: grid;
+  grid-template-rows: repeat(4, 1fr);
+  max-height: 80vh;
+  
+  h2:nth-child(1){
+    font-family: ${theme.fontSecondary};
+    font-size: 2.5rem;
+    padding: 0;
+    margin-left: 1rem;
+    
+    @media(max-width: 1260px){
+      font-size: 1.5rem;
+    }
+    @media(max-width: 950px){
+      font-size: 1.3rem;
+    }
+  }
+  
+  h1:nth-child(2){
+    font-family: ${theme.fontPrimary};
+    font-size: 4rem;
     text-transform: uppercase;
-    letter-spacing: 20px;
-    font-weight: 700;
-    color: ${theme.white};
-    position: absolute;
-    width: 100%;
+    margin: 2rem;
+
+    @media(max-width: 1260px){
+      font-size: 3rem;
+    }
+    @media(max-width: 950px){
+      font-size: 2.5rem;
+    }
+  }
+
+  h2:nth-child(3){
+    font-family: ${theme.fontSecondary};
+    font-size: 1.8rem;
+    margin: 0rem 0 1rem 8rem;
+
+    @media(max-width: 1260px){
+      font-size: 1.5rem;
+    }
+    @media(max-width: 50px){
+      font-size: 1rem;
+    }
+  }
   
   `
   
   const BannerImage = styled.div`
-  margin: 0 auto;
-  @media(max-width: 1800px){
-    width: 1200px;
-    max-width: 1200px;
-  }
-  @media(max-width: 1200px){
-    width: 900px;
-    max-width: 900px;
-  }
-  @media(max-width: 900px){
-    width: 600px;
-    max-width: 600px;
-  }
-  @media(max-width: 600px){
-    width: 320px;
-    max-width: 320px;
-  }
-  div:first-child{
 
-
-
+    div:first-child{
+      width: 70%;
+      margin: 0 auto;
+      margin-right: 2rem;
+    }  
+    `
     
+    export default Banner
     
-  }
-  `
-  
-  export default Banner
-  
