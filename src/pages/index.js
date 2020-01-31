@@ -1,22 +1,30 @@
 import React from "react"
-import { Link } from "gatsby"
 
 import Layout from "../components/layout"
 import Banner from "../components/Banner"
 import AboutBlurb from "../components/AboutBlurb"
 import SEO from "../components/seo"
 import Cards from "../components/Cards"
+import styled from 'styled-components'
 
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
-    <div>
+    <Container>
       <Banner />
       <AboutBlurb />
       <Cards />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link>
+    </Container>
   </Layout>
 )
+
+const Container = styled.div`
+  width: 95%;
+  margin: 0 auto;
+  border-left: 1px solid #707070;
+  border-right: 1px solid #707070;
+  background-color: white;
+`
+
 
 export default IndexPage

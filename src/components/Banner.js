@@ -20,18 +20,18 @@ const Banner = () => {
   return (
     <>   
     <Container>
-    <BannerTextContainer>
-    <h2>Hey</h2>
-    <h1>I'm Jeff</h1>
-    <h2>I build websites.</h2>
-    <div>
-    <button>Hire Me</button>
-    <button>Get CV</button>
-    </div>
-    </BannerTextContainer>
-    <BannerImage>
-    <Img fluid={data.lineDrawingMain.childImageSharp.fluid} />
-    </BannerImage>    
+        <BannerTextContainer>
+          <h2>Hey</h2>
+          <h1>I'm Jeff</h1>
+          <h2>I build websites.</h2>
+        <div>
+        <button>Hire Me</button>
+        <button>Get CV</button>
+        </div>
+        </BannerTextContainer>
+      <BannerImage>
+      <Img fluid={data.lineDrawingMain.childImageSharp.fluid} />
+      </BannerImage>    
     </Container>
     </>
     )
@@ -54,7 +54,6 @@ const Banner = () => {
   const Container = styled.div`
   display: grid;
   grid-template-columns: 1fr 2fr;
-  margin: 3rem;
 
   
   `
@@ -62,7 +61,7 @@ const Banner = () => {
   const BannerTextContainer = styled.div`
   display: grid;
   grid-template-rows: repeat(4, 1fr);
-  max-height: 80vh;
+  max-height: 80%;
   
   h2:nth-child(1){
     font-family: ${theme.fontSecondary};

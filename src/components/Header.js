@@ -9,12 +9,11 @@ const Header = () => {
     
     <Container>
     <Logo>
-    <StyledLink to="/" logo='logo'>Jeff Graham<br></br>Web Development</StyledLink>
+    <StyledLink to="/" logo='logo'>Jeff Graham</StyledLink>
     </Logo>
     
     <Nav>
     <StyledLink to="/about">About</StyledLink>
-    <StyledLink to="/work">Work</StyledLink>
     <StyledLink to="/portfolio">Portfolio</StyledLink>
     <StyledLink to="/contact" highlight="highlight">Contact</StyledLink>
     </Nav>
@@ -36,38 +35,46 @@ const Header = () => {
     
     const Container = styled.div`
     display: grid;
+    background-color: ${theme.black};
     grid-template-columns: repeat(2, 1fr);
-    z-index: 999;
-    border: 1px solid red;
-    height: 10vh;
+    grid-auto-rows: minmax(50px, auto);
+    z-index: 10;
     @media(max-width:650px){
       display: grid;
       
     }
     nav:nth-child(2){
-      background-color: red;
+      
     }
 
     `
     const Logo = styled.div`
+    display: grid;
+    align-items: center;
+    padding-left: 2rem;
     text-transform: uppercase;
     cursor: pointer;
     
     `
     const Nav = styled.nav`
-    border: 1px solid black;
-    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 10px;
+    align-items: center; 
+    padding-right: 2rem;
+    
+    
     
     `
     
     const StyledLink = styled(Link)`
+    display: grid;
+    justify-self: ${props => (props.highlight ? 'end' : 'start')};
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: ${props => (props.logo ? '5px' : '2px')};
-    padding: 5px;
     font-size: ${props => (props.logo ? '.85rem' : '.6rem')};
-    color: ${theme.primary};
-    border-bottom: 1px solid ${props => (props.highlight ? theme.gray : 'none')};
+    color: ${theme.white};
     transition: all 0.3s ease 0s;
     
     @media(min-width:650px){
