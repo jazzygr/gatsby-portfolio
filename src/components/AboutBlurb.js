@@ -58,26 +58,17 @@ const theme = {
 const Container = styled.div`
 display: grid;
 grid-template-columns: 50% 50%;
-min-height: 90vh;
-  @media(max-width: 960px){
-    grid-template-columns: 60% 40%;
-    
-  }
+margin-bottom: 4rem;
 `
 
 const BannerTextContainer = styled.div`
-display: grid; 
-
-  h2{
-    margin: 0;
-  }
+display: grid;
 `
 const BannerText = styled.p`
   font-size: 1.5rem;
   padding-right: 1rem;
   @media(max-width: 960px){
     font-size: 1rem;
-    
   }
   color: ${theme.gray};
   span{
@@ -93,7 +84,7 @@ text-transform: uppercase;
 font-size: 1.5rem;
 background-color: ${theme.white};
 color: black;
-border: 3px solid ${theme.black};
+border: 2px solid ${theme.black};
 border-radius: 2px;
 
 `

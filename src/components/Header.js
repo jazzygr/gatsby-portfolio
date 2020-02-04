@@ -73,12 +73,12 @@ const Header = () => {
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: ${props => (props.logo ? '5px' : '2px')};
-    font-size: ${props => (props.logo ? '.85rem' : '.6rem')};
+    font-size: ${props => (props.logo ? '1rem' : '0.8rem')};
     color: ${theme.white};
     transition: all 0.3s ease 0s;
     
-    @media(min-width:650px){
-      font-size: ${props => (props.logo ? '1.3rem' : '1rem')};
+    @media(max-width:650px){
+      font-size: ${props => (props.logo ? '0.8rem' : '0.6rem')};
       
     }
       &:hover{

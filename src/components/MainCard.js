@@ -16,10 +16,15 @@ const MainCard = props => {
     }
   `)
   return (
-    <div>
+    <CardImage>
       <Img fluid={data.whitecup.childImageSharp.fluid} />
-    </div>
+    </CardImage>
   )
 }
+
+const CardImage = styled.div`
+  border-radius: 100%;
+  overflow: hidden;
+`
 
 export default MainCard

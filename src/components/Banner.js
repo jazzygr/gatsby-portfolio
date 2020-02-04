@@ -61,38 +61,40 @@ const Banner = () => {
   grid-template-columns: 60% 40%;
   height: 100vh;
   align-items: center; 
-    @media(max-width: 1260px){
-      grid-template-columns: 50% 50%;
-    }
   `
   
   const BannerTextContainer = styled.div`
   display: grid;
-  grid-template-rows: auto auto repeat(2, 1fr); 
+  grid-template-rows: auto; 
 
       h2:nth-child(2){
         font-family: ${theme.fontSecondary};
-        font-size: 108px;
-        margin: 0;
+        font-size: 6rem;
+        @media(max-width: 1120px){
+          font-size: 4rem;
+        }
       }
       
       h1:nth-child(2){
         font-family: ${theme.fontPrimary};
         color: ${theme.gray};
         font-weight: 100;
-        font-size: 44px;
-        margin: 0 0 0 20%;
+        font-size: 2rem;
+        margin-left: 20%;
+        @media(max-width: 1120px){
+          font-size: 1.4rem;
+        }
       }
 
       h2:nth-child(3){
         font-family: ${theme.fontSecondary};
-        font-size: 63px;
+        font-size: 3.5rem;
         color: ${theme.gray};
         font-weight: 100;
-        margin: 0 0 0 30%;
-        text-align: left;
-        padding-right: 1rem;
-
+        margin-left: 30%;
+          @media(max-width: 1120px){
+            font-size: 2.5rem;
+          }
         span {
           font-weight: 800;
         }
@@ -112,10 +114,10 @@ const Banner = () => {
 
 
 const Button = styled.button`
-  width: 200px;
-  height: 60px;
+  width: 10rem;
+  height: 3rem;
   text-transform: uppercase;
-  font-size: 1.5rem;
+  font-size: 1rem;
   background-color: ${props => (props.inverse ? theme.white : theme.black)};
   color: ${props => (props.inverse ? theme.black : theme.white)};
   border: 3px solid ${theme.black};
