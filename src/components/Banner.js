@@ -2,6 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
+import "../styles/global"
 
 
 const Banner = () => {
@@ -21,13 +22,16 @@ const Banner = () => {
     <>   
     <Container>
         <BannerTextContainer>
-          <h2>Hey</h2>
-          <h1>I'm Jeff</h1>
-          <h2>I build websites.</h2>
-        <div>
-        <button>Hire Me</button>
-        <button>Get CV</button>
-        </div>
+            <LineContainer>
+                <div></div>
+                <h2>Hey</h2>
+            </LineContainer>
+          <h1>My name's Jeff</h1>
+          <h2>I build <span>websites.</span></h2>
+          <div>
+            <Button>Contact</Button>
+            <Button inverse="inverse">Get CV</Button>
+          </div>
         </BannerTextContainer>
       <BannerImage>
       <Img fluid={data.lineDrawingMain.childImageSharp.fluid} />
@@ -44,76 +48,101 @@ const Banner = () => {
   const theme = {
     white: "#fff",
     black: "#000",
-    gray: "#818181",
+    gray: "#707070",
     primary: "#0088a9",
     secondary: "#59FFA0",
-    fontPrimary: "Merriweather",
-    fontSecondary: "Lora"
+    fontPrimary: "Merriweather Sans",
+    fontSecondary: "Lato",
+
   }
-  
+
   const Container = styled.div`
   display: grid;
-  grid-template-columns: 1fr 2fr;
-
-  
+  grid-template-columns: 60% 40%;
+  height: 100vh;
+  align-items: center; 
+    @media(max-width: 1260px){
+      grid-template-columns: 50% 50%;
+    }
   `
   
   const BannerTextContainer = styled.div`
   display: grid;
-  grid-template-rows: repeat(4, 1fr);
-  max-height: 80%;
-  
-  h2:nth-child(1){
-    font-family: ${theme.fontSecondary};
-    font-size: 2.5rem;
-    padding: 0;
-    margin-left: 1rem;
-    
-    @media(max-width: 1260px){
-      font-size: 1.5rem;
-    }
-    @media(max-width: 950px){
-      font-size: 1.3rem;
-    }
+  grid-template-rows: auto auto repeat(2, 1fr); 
+
+      h2:nth-child(2){
+        font-family: ${theme.fontSecondary};
+        font-size: 108px;
+        margin: 0;
+      }
+      
+      h1:nth-child(2){
+        font-family: ${theme.fontPrimary};
+        color: ${theme.gray};
+        font-weight: 100;
+        font-size: 44px;
+        margin: 0 0 0 20%;
+      }
+
+      h2:nth-child(3){
+        font-family: ${theme.fontSecondary};
+        font-size: 63px;
+        color: ${theme.gray};
+        font-weight: 100;
+        margin: 0 0 0 30%;
+        text-align: left;
+        padding-right: 1rem;
+
+        span {
+          font-weight: 800;
+        }
+
   }
-  
-  h1:nth-child(2){
-    font-family: ${theme.fontPrimary};
-    font-size: 4rem;
-    text-transform: uppercase;
-    margin: 2rem;
 
-    @media(max-width: 1260px){
-      font-size: 3rem;
-    }
-    @media(max-width: 950px){
-      font-size: 2.5rem;
-    }
-  }
 
-  h2:nth-child(3){
-    font-family: ${theme.fontSecondary};
-    font-size: 1.8rem;
-    margin: 0rem 0 1rem 8rem;
 
-    @media(max-width: 1260px){
-      font-size: 1.5rem;
-    }
-    @media(max-width: 50px){
-      font-size: 1rem;
-    }
+  div:nth-child(4) {
+    display: grid;
+    grid-template-columns: 40% auto;
+    align-items: center;
+    padding: 3% 0 0 10%;
   }
   
   `
+
+
+const Button = styled.button`
+  width: 200px;
+  height: 60px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  background-color: ${props => (props.inverse ? theme.white : theme.black)};
+  color: ${props => (props.inverse ? theme.black : theme.white)};
+  border: 3px solid ${theme.black};
+  border-radius: 2px;
+
+`
+
   
+  const LineContainer = styled.div`
+    display: grid;
+    grid-template-columns: 10% 1fr;
+    align-items: center;
+    div {
+      background-color: ${theme.black};
+      height: 2px;
+      margin-left: -1px;
+    }
+    
+  `
   const BannerImage = styled.div`
 
     div:first-child{
-      width: 70%;
-      margin: 0 auto;
-      margin-right: 2rem;
+      width: 100%;
     }  
     `
+
+    
     
     export default Banner
     

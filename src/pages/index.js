@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import Banner from "../components/Banner"
 import AboutBlurb from "../components/AboutBlurb"
 import SEO from "../components/seo"
-import Cards from "../components/Cards"
+import Skills from "../components/Skills"
 import styled from 'styled-components'
 
 const IndexPage = () => (
@@ -13,7 +13,7 @@ const IndexPage = () => (
     <Container>
       <Banner />
       <AboutBlurb />
-      <Cards />
+      <Skills />
     </Container>
   </Layout>
 )
