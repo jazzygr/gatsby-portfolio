@@ -1,5 +1,6 @@
 import React from 'react';      
-import {Link, graphql, useStaticQuery} from "gatsby"
+import { graphql, useStaticQuery} from "gatsby"
+import styled from "styled-components"
 
 const Footer = () =>{
     const data = useStaticQuery(graphql`
@@ -12,11 +13,21 @@ const Footer = () =>{
       }
   `)
     return(
-        <footer>
-            <Link to="/">{data.site.siteMetadata.author}</Link>
-        </footer>
+        <FooterContainer>
+            <p>{data.site.siteMetadata.author}</p>
+        </FooterContainer>
     )
     
+
 }
+
+const FooterContainer = styled.footer`
+  background: black;
+  color: white;
+  min-height: 5vh;
+  width: 100%;
+  
+
+`
 
 export default Footer

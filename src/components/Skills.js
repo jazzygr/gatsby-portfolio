@@ -15,16 +15,16 @@ class Skills extends Component {
       <TextContainer>
       <LineContainer>
       <div></div>
-      <h1>Portfolio</h1>
+      <h2>Portfolio</h2>
       </LineContainer>
-      <h2>and <span>skills</span></h2>
+      <h3>and <span>skills</span></h3>
       </TextContainer>
       <CardContainer>
-      <MainCard />
-      <Card imgsrc={img1} title="Javascript Piano" text="A javascript piano that works across one octave."/>
-      <Card imgsrc={img2} title="RGB Colour Picker" text="A larger project to test your RGB knowledge"/>
-      <Card imgsrc={img3} title="Pay me bruh" text="Test"/>
-      <Card imgsrc={img4} title="Good stuff" text="Test"/>
+        <MainCard onClick={this.state}/>
+        <Card imgsrc={img1} title="Javascript Piano" text="A javascript piano that works across one octave."/>
+        <Card imgsrc={img2} title="RGB Colour Picker" text="A larger project to test your RGB knowledge"/>
+        <Card imgsrc={img3} title="Portfolio Website" text="This website, built using Gatsby.js with styled components and Spring.js"/>
+        <Card imgsrc={img4} title="Good stuff" text="Test"/>
       </CardContainer>  
       </Container>
       )
@@ -47,16 +47,21 @@ class Skills extends Component {
   display:grid;
   margin-right: .5rem;
   grid-template-columns: auto 70%;
+  padding-bottom: 3rem;
+  @media(max-width:960px) {
+    grid-template-columns: 50% 50%;
+  }
+
   
   `
   
   const TextContainer = styled.div`
   display: grid;
   grid-template-rows: 45px 10% auto;
-  h1:nth-child(2){
+  h2:nth-child(2){
     font-size: 3rem;
   }
-    h2{
+    h3{
       font-size: 2rem;
       color: ${theme.gray};
       font-weight: 100;
@@ -70,26 +75,24 @@ class Skills extends Component {
   
   const CardContainer = styled.div`
   display: grid;
+  grid-template-rows: 1fr 1fr;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 5px;
-  grid-row-gap: 5px;
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+
   div:nth-child(1){
-    grid-area: 1 / 1 / 3 / 3;
+    grid-column-start: span 2;
+    :hover {
+      opacity: 0.5;
+      transition: 0.7s;
+    }
   }
-  div:nth-child(2){
-    grid-area: 1 / 3 / 3 / 4;
+
+  @media(max-width:960px) {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
   }
-  div:nth-child(3){
-    grid-area: 3 / 1 / 5 / 2;
-  }
-  div:nth-child(4){
-    grid-area: 3 / 2 / 5 / 3;
-  }
-  div:nth-child(5){
-    grid-area: 3 / 3 / 5 / 4;
-  }
-  
+
   `
   const LineContainer = styled.div`
     display: grid;

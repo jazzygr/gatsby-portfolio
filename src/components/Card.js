@@ -7,15 +7,11 @@ import { IconContext } from "react-icons"
 const Card = props => {
   return (
       <StyledCard>
-          <div>
-          <img src={props.imgsrc} alt="Current project" />
-          <h4 className="card-title">{props.title}</h4>
-          <p className="card-text">{props.text} </p>
-          </div>
+            <img src={props.imgsrc} alt="Current project" />
+            <h4 className="card-title">{props.title}</h4>
+            <p className="card-text">{props.text} </p>
           <IconContext.Provider value={{ color: "black", size: '2em'}}>
-          <FiGithub />
-
-
+            <FiGithub />
           </IconContext.Provider>
       </StyledCard>
   )
@@ -24,23 +20,17 @@ const Card = props => {
 const StyledCard = styled.div`
   border: 1px solid black;
   border-radius: 3%;
-  padding-top: 10%;
-  text-align: center;
-  min-height: 280px;
+  display: grid;
+  grid-template-rows: 30% 10% auto 20%;
+  justify-items: center;
+
     img:nth-child(1){
-      max-width: 40%;
-      margin: 0 25% 0 25%;
+      max-width: 25%;
       
     }
-    h4:nth-child(2){
-      color: red;
-      padding: 5% 1rem 0 1rem;
-      text-align: left;
 
-    }
     p:nth-child(3){
-      text-align: left;
-      padding: 0 1rem;
+      font-family: 'Merriweather Sans', sans-serif;
     }
 `
 

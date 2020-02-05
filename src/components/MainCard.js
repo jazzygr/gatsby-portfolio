@@ -23,8 +23,9 @@ const MainCard = props => {
 }
 
 const CardImage = styled.div`
-  border-radius: 100%;
+  border-radius: 10%;
   overflow: hidden;
+
 `
 
 export default MainCard
